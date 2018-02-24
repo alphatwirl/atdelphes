@@ -2,7 +2,7 @@
 
 import ROOT
 
-from ..roottree.Events import Events
+from alphatwirl.roottree.Events import Events
 
 from .load_delphes import load_delphes
 
