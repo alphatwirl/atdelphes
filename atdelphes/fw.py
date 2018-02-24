@@ -13,6 +13,7 @@ except:
 import alphatwirl
 
 from .yes_no import query_yes_no
+from . import delphes
 
 ##__________________________________________________________________||
 import logging
@@ -92,9 +93,9 @@ class AtDelphes(object):
             reader_top.add(r)
             collector_top.add(c)
         eventLoopRunner = alphatwirl.loop.MPEventLoopRunner(self.parallel.communicationChannel)
-        eventBuilderConfigMaker = alphatwirl.delphes.EventBuilderConfigMaker()
+        eventBuilderConfigMaker = delphes.EventBuilderConfigMaker()
         datasetIntoEventBuildersSplitter = alphatwirl.loop.DatasetIntoEventBuildersSplitter(
-            EventBuilder=alphatwirl.delphes.DelphesEventBuilder,
+            EventBuilder=delphes.DelphesEventBuilder,
             eventBuilderConfigMaker=eventBuilderConfigMaker,
             maxEvents=self.max_events_per_dataset,
             maxEventsPerRun=self.max_events_per_process,
