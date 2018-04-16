@@ -102,7 +102,7 @@ class AtDelphes(object):
             maxFiles=self.max_files_per_dataset,
             maxFilesPerRun=self.max_files_per_process
         )
-        eventReader = alphatwirl.loop.EventsInDatasetReader(
+        eventReader = alphatwirl.loop.EventDatasetReader(
             eventLoopRunner=eventLoopRunner,
             reader=reader_top,
             collector=collector_top,
