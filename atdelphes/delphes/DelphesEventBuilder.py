@@ -1,24 +1,15 @@
 # Tai Sakuma <tai.sakuma@gmail.com>
-import ROOT
+from alphatwirl.roottree import EventBuilder
+
 from .DelphesEvents import DelphesEvents
+from .load_delphes import load_delphes
 
 ##__________________________________________________________________||
-class DelphesEventBuilder(object):
+class DelphesEventBuilder(EventBuilder):
     def __init__(self, config):
-        self.config = config
-
-    def __repr__(self):
-        return '{}({!r})'.format(
-            self.__class__.__name__,
-            self.config
-        )
-
+        super(DelphesEventBuilder, self).__init__(config, EventsClass=DelphesEvents)
     def __call__(self):
-        chain = ROOT.TChain(self.config.treeName)
-        for path in self.config.inputPaths:
-            chain.Add(path)
-        events = DelphesEvents(chain, self.config.maxEvents, self.config.start)
-        events.config = self.config
-        return events
+        load_delphes()
+        return super(DelphesEventBuilder, self).__call__()
 
 ##__________________________________________________________________||
