@@ -1,19 +1,18 @@
-import unittest
+# Tai Sakuma <tai.sakuma@gmail.com>
+import pytest
 
-##__________________________________________________________________||
-hasROOT = False
+has_no_ROOT = False
 try:
     import ROOT
-    hasROOT = True
 except ImportError:
-    pass
+    has_no_ROOT = True
 
-if hasROOT:
-    from alphatwirl.delphes import DelphesEvents
+if not has_no_ROOT:
+    from atdelphes.delphes import DelphesEvents
 
 ##__________________________________________________________________||
-@unittest.skipUnless(hasROOT, "has no ROOT")
-class TestDelphesEvents(unittest.TestCase):
-    pass
+pytestmark = pytest.mark.skipif(has_no_ROOT, reason="has no ROOT")
+
+##__________________________________________________________________||
 
 ##__________________________________________________________________||
