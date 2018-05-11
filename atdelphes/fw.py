@@ -60,11 +60,11 @@ class AtDelphes(object):
         user_modules = set(user_modules)
         user_modules.add('atdelphes')
         self.parallel = alphatwirl.parallel.build_parallel(
-            parallel_mode=parallel_mode,
-            quiet=quiet,
-            processes=process,
-            user_modules=user_modules,
-            ## htcondor_job_desc_extra=htcondor_job_desc_extra,
+           parallel_mode=parallel_mode,
+           quiet=quiet,
+           processes=process,
+           user_modules=user_modules,
+           ## htcondor_job_desc_extra=htcondor_job_desc_extra,
            dispatcher_options=dispatcher_options
         )
         self.max_events_per_dataset = max_events_per_dataset
