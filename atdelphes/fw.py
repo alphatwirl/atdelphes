@@ -99,7 +99,7 @@ class AtDelphes(object):
         eventLoopRunner = alphatwirl.loop.MPEventLoopRunner(self.parallel.communicationChannel)
         eventBuilderConfigMaker = delphes.EventBuilderConfigMaker()
         datasetIntoEventBuildersSplitter = alphatwirl.loop.DatasetIntoEventBuildersSplitter(
-            EventBuilder=delphes.DelphesEventBuilder,
+            EventBuilder=delphes.BuildDelphesEvents,
             eventBuilderConfigMaker=eventBuilderConfigMaker,
             maxEvents=self.max_events_per_dataset,
             maxEventsPerRun=self.max_events_per_process,

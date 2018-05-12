@@ -7,5 +7,8 @@ except ImportError:
 
 if hasROOT:
     from .DelphesEvents import DelphesEvents
-    from .DelphesEventBuilder import DelphesEventBuilder
     from .EventBuilderConfigMaker import EventBuilderConfigMaker
+    from .build import BuildDelphesEvents
+
+    # deprecated
+    from .DelphesEventBuilder import DelphesEventBuilder
